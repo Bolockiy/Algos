@@ -7,6 +7,8 @@ build/
 CMakeCache.txt
 CMakeFiles/
 .vs/
+.vs/*
 Algo/
 Algo.sln
-x64/
+x64/*
+*.sln

@@ -1,0 +1,12 @@
+build/
+*.o
+*.obj
+*.exe
+*.out
+*.log
+CMakeCache.txt
+CMakeFiles/
+.vs/
+Algo/
+Algo.sln
+x64/

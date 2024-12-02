@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.7)
+
+project(Algo)
+
+# Установка стандарта C++
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Указание каталога с заголовочными файлами
+include_directories(${CMAKE_SOURCE_DIR}/include)
+file(GLOB SOURCES "include/*.h")
+# Поиск всех файлов .cpp в папке Src
+file(GLOB SOURCES "Src/*.cpp")
+
+# Указание выходного каталога для исполняемых файлов
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# Добавление исполняемого файла
+add_executable(Algo apps/main.cpp ${SOURCES})
+

@@ -6,6 +6,44 @@
 #include <array>
 #include <algorithm>
 #include <iostream>
+#include <string>
+std::vector<std::pair<int,std::string>> Texts;
+void push(const int num, const std::string& _str)
+{
+    Texts.emplace_back(std::make_pair(num, _str));
+}
+std::vector<std::pair<int, std::string>>& vecRet()
+{
+    return Texts;
+}
+
+std::string duplicate_encoder(const std::string& word) {
+    std::string word2 = word;
+    std::transform(word2.begin(), word2.end(), word2.begin(), [](unsigned char c) {return std::tolower(c); });
+    std::map<char,int> Characters;
+    for (auto& it : word2)
+    {
+        ++Characters[it];
+    }
+    std::string wordres = "";
+    for (int i{};i< word2.size();++i)
+    {
+        if (Characters.at(word2[i]) >= 2)
+            wordres += ')';
+        else
+            wordres += '(';
+    }
+    return wordres;
+}
+
+std::string bool_to_word(bool value)
+{
+    return value?"Yes":"No";
+}
+template <typename Func>
+void search(Func oper)
+{
+}
 void binary_search(std::vector<int>& vec, int key)
 {
     if (vec.empty())

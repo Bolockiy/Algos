@@ -4,6 +4,16 @@
 int main()
 {
     std::setlocale(LC_ALL, "RUS");
+    push(1,"One");
+    push(2,"Two");
+    auto returnVector = vecRet();
+    std::cout<<returnVector.size() << "\n";
+    for (auto&& it : returnVector)
+    {
+        push(it.first,it.second);
+    }
+
+    std::cout<<duplicate_encoder(" ( ( )")<<"\n";
     countWorlds("One TWO!");
     for (auto i = worlds.begin(); i != worlds.end(); ++i)
     {

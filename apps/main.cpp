@@ -1,10 +1,15 @@
 #include <iostream>
 #include "RomanConvert.h"
 #include "Algos.h"
+#include <sstream>
 int main()
 {
     std::setlocale(LC_ALL, "RUS");
+    Printer pr;
+    std::cout<<pr.printerError("kkkwwwaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz")<<"\n";
     push(1,"One");
+    std::string name;
+    std::stringstream ss;
     push(2,"Two");
     auto returnVector = vecRet();
     std::cout<<returnVector.size() << "\n";
@@ -32,7 +37,9 @@ int main()
     pa.emplace(255, "30");
     std::cout << fact(5);
     std::vector<int> vec1{ 3,66,44,11,88,55,43,876,12,345,76,222 };
+
     bublesort(vec1);
     for (int i{}; i < vec1.size() - 1; ++i)
         std::cout << vec1[i] << " ";
+
 }

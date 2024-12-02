@@ -7,7 +7,37 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+
+class Printer
+{
+public:
+    static std::string printerError(const std::string& s)
+        {
+        const std::string alph = "abcdefghjijklm";
+        std::string res;
+            int count = 0;
+            for (char it : s)
+            {
+                if (alph.find(it) == std::string::npos)
+                    ++count;
+            }
+            res += std::to_string(count) + "/" + std::to_string(s.length());
+            return res;
+        }
+};
+
 std::vector<std::pair<int,std::string>> Texts;
+
+int positive_sum(const std::vector<int>& arr) {
+    int sum = 0;
+    if (!arr.empty())
+    {
+        for (auto&& it : arr)
+            if (it >= 0)
+                sum += it;
+    }
+    return sum;
+}
 void push(const int num, const std::string& _str)
 {
     Texts.emplace_back(std::make_pair(num, _str));

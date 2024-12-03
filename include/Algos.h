@@ -6,8 +6,138 @@
 #include <array>
 #include <algorithm>
 #include <iostream>
-#include <string>
+#include <cctype>
+#include <numeric>
+#include <functional>
+#include <tchar.h>
+#include <iostream>
+#include <iomanip> 
+#include <sstream>
+#include <math.h>
+long int findNextSquare(long int sq) {
+    //std::string str = std::to_string(std::sqrt(sq)); 
+    long long squareRootN = (long long)round((sqrt(sq)));
+    if (squareRootN * squareRootN != sq) {
+        return -1;
+    }
+    int next = floor(std::sqrt(sq))+1;
+    return next * next;
+}
 
+std::string reverse_words(std::string str)
+{
+    std::string result;
+    std::string word;
+    size_t start = 0, end = 0;
+
+    while (end < str.size()) {
+        if (str[end] == ' ') {
+            if (start < end) {
+                word = str.substr(start, end - start);
+                std::reverse(word.begin(), word.end());
+                result += word;
+            }
+            result += ' ';
+            start = end + 1;
+        }
+        ++end;
+    }
+
+    if (start < end) {
+        word = str.substr(start, end - start);
+        std::reverse(word.begin(), word.end());
+        result += word;
+    }
+    return result;
+}
+std::string bmi(double w, double h)
+{
+    double bmi = w / (h * h);
+    if (bmi <= 18.5)
+        return "Underweight";
+    else if (bmi > 18.5 && bmi <= 25.0)
+        return "Normal";
+    else if (bmi > 25.0 && bmi <= 30.0)
+        return "Overweight";
+    else if (bmi > 30)
+        return "Obese";
+}
+std::string findNeedle(const std::vector<std::string>& haystack)
+{
+    auto pos = std::find(haystack.begin(), haystack.end(), "needle");
+    if (pos != haystack.end())
+    {
+        size_t index = std::distance(haystack.begin(), pos);
+        return "found the needle at position "+std::to_string(index);
+    }
+    return "found the needle at position ";
+}
+int summation(int num) {
+    if (num == 0)
+        return 0;
+    return num+summation(num - 1);
+}
+uint64_t descendingOrder(uint64_t a)
+{
+    std::string strNum = std::to_string(a);
+    std::sort(strNum.begin(), strNum.end(), std::greater<char>());
+    return std:: stoull(strNum.c_str());
+}
+std::string smash(const std::vector<std::string>& words)
+{
+    std::string res;
+    for (auto&& it : words)
+        res += it + ' ';
+    res.pop_back();
+        return res;
+}
+
+bool betterThanAverage(std::vector<int> classPoints, int yourPoints) {
+ /*   int sum=0;
+    for (auto&& it: classPoints)
+        sum += it;
+    sum= sum/ classPoints.size();
+    return yourPoints >= sum;*/
+    return std::accumulate(classPoints.cbegin(), classPoints.cend(), 0) < classPoints.size() * yourPoints;
+}
+long sumTwoSmallestNumbers(std::vector<int> numbers)
+{
+    std::sort(numbers.begin(), numbers.end());
+    return numbers[0] + numbers[1];
+    //auto min_elem = *std::min_element(numbers.begin(), numbers.end());
+    //auto beg = numbers.begin();
+    //for (; beg!= numbers.end();++beg)
+    //{
+    //    if (*beg == min_elem)
+    //    {
+    //        numbers.erase(beg);
+    //        break;
+    //    } 
+    //}
+    //auto minelem = *std::min_element(numbers.begin(), numbers.end());
+    //return min_elem + minelem;
+}
+std::string number_to_string(int num) {
+    return std::to_string(num);
+}
+
+bool solution(std::string const& str, std::string const& ending) {
+    return (std::string(str.end() - ending.size(), str.end()) == ending);
+}
+std::string no_space(const std::string& x)
+{
+        std::string res;
+        for (auto&& it : x)
+        {
+            if (it != ' ')
+                res+=it;
+            else
+                continue;
+        }
+    //std::remove_if(res.begin(), res.end(), std::isspace);
+    std::cout << res << "\n";
+    return res;
+}
 class Printer
 {
 public:

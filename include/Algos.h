@@ -14,6 +14,25 @@
 #include <iomanip> 
 #include <sstream>
 #include <math.h>
+#include <filesystem>
+#include <fstream>
+
+
+int find_short(std::string str)
+{
+    std::stringstream stream{ str };
+    std::string word;
+    int res = 999999999;
+    while (std::getline(stream,word,' '))
+    {
+        int wordL = word.length();
+        if (res > wordL)
+        {
+            res = word.length();
+        }
+    }
+    return res;
+}
 long int findNextSquare(long int sq) {
     //std::string str = std::to_string(std::sqrt(sq)); 
     long long squareRootN = (long long)round((sqrt(sq)));
@@ -31,7 +50,8 @@ std::string reverse_words(std::string str)
     size_t start = 0, end = 0;
 
     while (end < str.size()) {
-        if (str[end] == ' ') {
+        if (str[end] == ' ') 
+        {
             if (start < end) {
                 word = str.substr(start, end - start);
                 std::reverse(word.begin(), word.end());

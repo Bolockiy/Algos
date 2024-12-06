@@ -5,9 +5,9 @@
 int main()
 {
     std::setlocale(LC_ALL, "RUS");
-    std::string str = "Test with a trailing space ";
-   
-   std::cout << findNextSquare(121) << std::endl;
+    std::string str = "Test with a trailing space";
+    std::cout << find_short("Let's travel abroad shall we") << std::endl;
+    std::cout << findNextSquare(121) << std::endl;
     std::cout << reverse_words(str) << std::endl;
     std::cout << bmi(100, 1.80) << std::endl;
     std::cout << findNeedle({ "283497238987234", "a dog", "a cat", "some random junk", "a piece of hay", "needle", "something somebody lost a while ago" }) << "\n";;
